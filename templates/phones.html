@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Телефон Сатуу - Башкы Бет</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f4f4;
+            color: #333;
+        }
+
+        /* Башкы бет (Header) */
+        header {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        /* Навигация */
+        nav {
+            background: #222;
+            display: flex;
+            justify-content: center;
+            padding: 12px;
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffd700;
+        }
+
+        /* Телефондор тизмеси */
+        .container {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 0 15px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .phone-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .phone-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .phone-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: #ddd;
+        }
+
+        .phone-info {
+            padding: 15px;
+        }
+
+        .phone-info h3 {
+            margin-bottom: 8px;
+            color: #1e3c72;
+        }
+
+        .phone-info .specs {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .phone-info .price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #e63946;
+            margin-bottom: 12px;
+        }
+
+        .phone-info button {
+            width: 100%;
+            padding: 10px;
+            background: #1e3c72;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .phone-info button:hover {
+            background: #2a5298;
+        }
+
+        /* Footer */
+        footer {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Башкы бет -->
+    <header>
+        <h1>📱 Телефон Дүкөнү</h1>
+        <p>Ар бир телефондун өзүнүн баасы жана мүнөздөмөсү бар</p>
+    </header>
+
+    <!-- Навигация -->
+    <nav>
+        <a href="#">Башкы бет</a>
+        <a href="#">Телефондор</a>
+        <a href="#">Байланыш</a>
+        <a href="#">Биз жөнүндө</a>
+    </nav>
+
+    <!-- Телефондор -->
+    <div class="container">
+
+        <div class="phone-card">
+            <img src="https://via.placeholder.com/300x200?text=iPhone+15+Pro" alt="iPhone 15 Pro">
+            <div class="phone-info">
+                <h3>iPhone 15 Pro</h3>
+                <p class="specs">256GB • A17 Pro • 48MP камера</p>
+                <p class="price">1000 $</p>
+                <button>Себетке кошуу</button>
+            </div>
+        </div>
+<div class="phone-card">
+            <img src="https://via.placeholder.com/300x200?text=Samsung+S24" alt="Samsung S24">
+            <div class="phone-info">
+                <h3>Samsung Galaxy S24</h3>
+                <p class="specs">128GB • Snapdragon 8 Gen 3 • 50MP</p>
+                <p class="price">900 $</p>
+                <button>Себетке кошуу</button>
+            </div>
+        </div>
+
+        <div class="phone-card">
+            <img src="https://via.placeholder.com/300x200?text=Xiaomi+Redmi" alt="Xiaomi">
+            <div class="phone-info">
+                <h3>Xiaomi Redmi Note 13</h3>
+                <p class="specs">128GB • 5000mAh • 108MP камера</p>
+                <p class="price">300 $</p>
+                <button>Себетке кошуу</button>
+            </div>
+        </div>
+
+        <div class="phone-card">
+            <img src="https://via.placeholder.com/300x200?text=Nokia+3310" alt="Nokia">
+            <div class="phone-info">
+                <h3>Nokia 3310</h3>
+                <p class="specs">Түбөлүк батарея • Кыйрабайт • Легенда</p>
+                <p class="price">50 $</p>
+                <button>Себетке кошуу</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Телефон Дүкөнү. Бардык укуктар корголгон.</p>
+        <p>Байланыш: +996 XXX XXX XXX</p>
+    </footer>
+
+</body>
+</html>
