@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Состав команды</title>
+    <style>
+        body { max-width: 1100px; margin: 2rem auto; padding: 0 1rem; font: 16px/1.5 system-ui, sans-serif; color: #172033; background: #f6f8fc; }
+        h1 { margin-bottom: .25rem; } .muted { color: #61708a; }
+        form { display: flex; gap: .75rem; align-items: end; margin: 2rem 0; } label { display: grid; gap: .25rem; font-weight: 600; }
+        select, button, a.button { padding: .55rem .75rem; border: 1px solid #b8c3d6; border-radius: .4rem; background: white; color: inherit; font: inherit; }
+        button, a.button { cursor: pointer; background: #1266dc; border-color: #1266dc; color: white; text-decoration: none; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 1rem; }
+        article { overflow: hidden; border: 1px solid #dce3ef; border-radius: .75rem; background: white; box-shadow: 0 2px 5px #1720330d; }
+        article img, .placeholder { display: block; width: 100%; height: 220px; object-fit: cover; background: #dce3ef; }
+        .placeholder { display: grid; place-items: center; color: #61708a; } .content { padding: 1rem; }
+        .number { float: right; color: #1266dc; font-size: 1.25rem; font-weight: 700; }
+        h2 { margin: 0; font-size: 1.25rem; } .stats { display: flex; gap: 1rem; margin: 1rem 0; } .stats span { display: grid; }
+        .stats strong { color: #1266dc; } .stats small { color: #61708a; } .empty { padding: 2rem; border: 1px dashed #b8c3d6; text-align: center; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Состав команды</h1>
+        <p class="muted">Профили футболистов и ключевая статистика.</p>
+    </header>
+
+    <form method="get">
+        <label for="position">Позиция
+            <select id="position" name="position">
+                <option value="">Все позиции</option>
+                {% for value, label in positions %}
+                    <option value="{{ value }}" {% if selected_position == value %}selected{% endif %}>{{ label }}</option>
+                {% endfor %}
+            </select>
+        </label>
+        <button type="submit">Показать</button>
+    </form>
+
+    <main class="grid">
+        {% for player in players %}
+            <article>
+                {% if player.photo %}
+                    <img src="{{ player.photo.url }}" alt="{{ player.full_name }}">
+                {% else %}
+                    <div class="placeholder">Нет фотографии</div>
+                {% endif %}
+                <div class="content">
+                    <span class="number">#{{ player.jersey_number }}</span>
+                    <h2>{{ player.full_name }}</h2>
+                    <p class="muted">{{ player.get_position_display }} · {{ player.club }}</p>
+                    <div class="stats">
+                        <span><strong>{{ player.appearances }}</strong><small>матчей</small></span>
+                        <span><strong>{{ player.goals }}</strong><small>голов</small></span>
+                        <span><strong>{{ player.assists }}</strong><small>передач</small></span>
+                    </div>
+                    <a class="button" href="{% url 'main:player_detail' player.pk %}">Профиль</a>
+                </div>
+            </article>
+        {% empty %}
+            <div class="empty">Игроки по выбранному фильтру не найдены.</div>
+        {% endfor %}
+    </main>
+</body>
+</html>
