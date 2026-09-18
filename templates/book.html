@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Библиотека</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7f4ee;
+            color: #1f2937;
+        }
+        a { text-decoration: none; color: inherit; }
+        .container {
+            width: 1200px;
+            max-width: 90%;
+            margin: 0 auto;
+        }
+        .header {
+            background: #234a3d;
+            color: white;
+            padding: 20px 0;
+        }
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+        .logo {
+            font-size: 30px;
+            font-weight: 700;
+        }
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            font-size: 15px;
+        }
+        .nav-menu a { opacity: 0.9; }
+        .nav-menu a:hover { opacity: 1; }
+        .btn {
+            background: #d9b16c;
+            color: #1f2d28;
+            border: none;
+            border-radius: 10px;
+            padding: 12px 22px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        .hero {
+            background: linear-gradient(135deg, #234a3d, #335f51);
+            color: white;
+            padding: 80px 0;
+        }
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+        .hero-text {
+            max-width: 560px;
+        }
+        .hero-text h1 {
+            font-size: 52px;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+        .hero-text p {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #e5e7eb;
+            margin-bottom: 30px;
+        }
+        .hero-actions {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.5);
+            color: white;
+            border-radius: 10px;
+            padding: 12px 22px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        .search-box {
+            display: flex;
+            max-width: 520px;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .search-box input {
+            flex: 1;
+            border: none;
+            background: transparent;
+            color: white;
+            padding: 18px 16px;
+            font-size: 16px;
+            outline: none;
+        }
+        .search-box input::placeholder { color: #d1d5db; }
+        .search-box button {
+            border: none;
+            background: #d9b16c;
+            color: #1f2d28;
+            padding: 0 22px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        .hero-card {
+            width: 360px;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 24px;
+            padding: 24px;
+        }
+        .book-cover {
+            height: 220px;
+            border-radius: 18px;
+            background: linear-gradient(135deg, #d9b16c, #f4ddb2);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 16px;
+        }
+        .book-cover::before {
+            content: "";
+            position: absolute;
+            inset: 20px 30px;
+            border-radius: 14px;
+            background: rgba(255,255,255,0.25);
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+        .book-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #e5e7eb;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .hero-card h3 {
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+            margin-top: -22px;
+            position: relative;
+            z-index: 1;
+        }
+        .stat-card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 28px 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+        .stat-number {
+            font-size: 36px;
+            font-weight: 700;
+            color: #1f3a2e;
+            margin-bottom: 10px;
+        }
+        .stat-card p {
+            color: #6b7280;
+        }
+        .main-content {
+            padding: 70px 0;
+        }
+        .section-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 28px;
+        }
+        .section-head h2 {
+            font-size: 36px;
+        }
+        .section-head a {
+            color: #1f3a2e;
+            font-weight: 600;
+        }
+        .book-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 28px;
+        }
+        .book-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+        }
+        .book-image {
+            height: 240px;
+            background: linear-gradient(135deg, #dfe9de, #b0c7b6);
+            position: relative;
+        }
+        .book-image:nth-child(2) { background: linear-gradient(135deg, #f0d89b, #d7af5d); }
+        .book-image:nth-child(3) { background: linear-gradient(135deg, #d3d5f2, #a5a5d7); }
+        .book-image::before {
+            content: "";
+            position: absolute;
+            inset: 18px 24px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.25);
+            border: 1px solid rgba(255,255,255,0.6);
+        }
+        .book-info {
+            padding: 20px;
+        }
+        .tag {
+            display: inline-block;
+            background: #edf4ee;
+            color: #1f3a2e;
+            padding: 7px 10px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .book-info h3 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+        .author {
+            color: #6b7280;
+            margin-bottom: 18px;
+        }
+        .book-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .price {
+            font-size: 20px;
+            font-weight: 700;
+        }
+        .rating {
+            color: #d9b16c;
+            font-weight: 700;
+        }
+        .category-section {
+            margin-top: 80px;
+            display: grid;
+            grid-template-columns: 1.4fr 0.8fr;
+            gap: 28px;
+        }
+        .categories, .newsletter {
+            background: white;
+            border-radius: 20px;
+            padding: 26px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+        }
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 18px;
+        }
+        .category-item {
+            background: #f8f5ef;
+            border-radius: 14px;
+            padding: 18px;
+        }
+        .category-item h4 {
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
+        .category-item p {
+            color: #6b7280;
+            font-size: 14px;
+        }
+        .newsletter {
+            background: linear-gradient(135deg, #1f3a2e, #233a31);
+            color: white;
+        }
+        .newsletter h3 {
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+        .newsletter p {
+            color: #d1d5db;
+            line-height: 1.6;
+            margin-bottom: 18px;
+        }
+        .newsletter input {
+            width: 100%;
+            border: none;
+            border-radius: 10px;
+            padding: 14px 12px;
+            margin-bottom: 12px;
+            outline: none;
+        }
+        .newsletter button {
+            width: 100%;
+            border: none;
+            background: #d9b16c;
+            color: #1f3a2e;
+            font-weight: 700;
+            border-radius: 10px;
+            padding: 15px;
+            cursor: pointer;
+        }
+        .footer {
+            margin-top: 70px;
+            background: #1d2f26;
+            color: #e5e7eb;
+            padding: 30px 0;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+        @media (max-width: 900px) {
+            .hero-content, .category-section, .book-grid { display: block; }
+            .hero-card { width: 100%; margin-top: 30px; }
+            .stats { grid-template-columns: 1fr; }
+            .nav { flex-direction: column; align-items: flex-start; }
+            .nav-menu { flex-wrap: wrap; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container nav">
+            <div class="logo">BookShelf</div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#">Главная</a></li>
+                    <li><a href="#">Каталог</a></li>
+                    <li><a href="#">Авторы</a></li>
+                    <li><a href="#">Рекомендации</a></li>
+                    <li><a href="#">Контакты</a></li>
+                </ul>
+            </nav>
+            <button class="btn">Войти</button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>Читай больше. Узнавай новое.</h1>
+                <p>Открой для себя книги, статьи и вдохновляющие истории в нашей библиотеке.</p>
+                <div class="hero-actions">
+                    <button class="btn">Смотреть каталог</button>
+                    <button class="btn-secondary">Подписаться</button>
+                </div>
+                <div class="search-box">
+                    <input type="text" placeholder="Найти книгу, автора или жанр...">
+                    <button>Поиск</button>
+                </div>
+            </div>
+
+            <div class="hero-card">
+                <div class="book-cover"></div>
+                <div class="book-meta">
+                    <span>Рекомендация</span>
+                    <span>4.8 ★</span>
+                </div>
+                <h3>Тайны утра</h3>
+                <p>Елена Маркова</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="container stats">
+        <div class="stat-card">
+            <div class="stat-number">25k+</div>
+            <p>Книг в коллекции</p>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">1.2k</div>
+            <p>Активных читателей</p>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">120+</div>
+            <p>Авторов и журналов</p>
+        </div>
+    </div>
+
+    <main class="container main-content">
+        <div class="section-head">
+            <h2>Новинки</h2>
+            <a href="#">Показать всё</a>
+        </div>
+
+        <div class="book-grid">
+            <article class="book-card">
+                <div class="book-image"></div>
+                <div class="book-info">
+                    <span class="tag">Фантастика</span>
+                    <h3>Звёздный путь</h3>
+                    <div class="author">Артём Ковалёв</div>
+                    <div class="book-footer">
+                        <div class="price">550 ₽</div>
+                        <div class="rating">★ 4.9</div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="book-card">
+                <div class="book-image"></div>
+                <div class="book-info">
+                    <span class="tag">Драма</span>
+                    <h3>Сердце в тени</h3>
+                    <div class="author">Марина Левина</div>
+                    <div class="book-footer">
+                        <div class="price">480 ₽</div>
+                        <div class="rating">★ 4.7</div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="book-card">
+                <div class="book-image"></div>
+                <div class="book-info">
+                    <span class="tag">История</span>
+                    <h3>Забытые города</h3>
+                    <div class="author">Иван Сорокин</div>
+                    <div class="book-footer">
+                        <div class="price">620 ₽</div>
+                        <div class="rating">★ 5.0</div>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <div class="category-section">
+            <div class="categories">
+                <div class="section-head">
+                    <h2>Категории</h2>
+                </div>
+                <div class="categories-grid">
+                    <div class="category-item">
+                        <h4>Научная</h4>
+                        <p>Познание мира и открытий</p>
+                    </div>
+                    <div class="category-item">
+                        <h4>Детектив</h4>
+                        <p>Загадки и расследования</p>
+                    </div>
+                    <div class="category-item">
+                        <h4>Роман</h4>
+                        <p>Глубокие истории и эмоции</p>
+                    </div>
+                    <div class="category-item">
+                        <h4>Психология</h4>
+                        <p>Развитие и самопознание</p>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="newsletter">
+                <h3>Подпишитесь на новости</h3>
+                <p>Получайте обновления о новых поступлениях, мероприятиях и лучших рекомендациях.</p>
+                <input type="email" placeholder="Ваш email">
+                <button>Подписаться</button>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div>© 2026 BookShelf</div>
+            <div>Все права защищены</div>
+        </div>
+    </footer>
+</body>
+</html>
