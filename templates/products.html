@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Смартфон X - Онлайн Дүкөн</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+</head>
+<body>
+
+    <!-- 1. Навигация (Navbar) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#"><i class="bi bi-phone"></i> TechStore</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#hero">Башкы бет</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#features">Артыкчылыктары</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#specs">Мүнөздөмөсү</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. Башкы блок (Hero / Product Main) -->
+    <section id="hero" class="py-5 bg-light">
+        <div class="container my-5">
+            <div class="row align-items-center">
+                <!-- Товардын сүрөтү -->
+                <div class="col-lg-6 text-center mb-4 mb-lg-0">
+                    <img src="https://via.placeholder.com/500x500" class="img-fluid rounded shadow" alt="Товардын сүрөтү">
+                </div>
+                <!-- Товардын маалыматы -->
+                <div class="col-lg-6">
+                    <span class="badge bg-danger mb-2">Жаңылык 2024</span>
+                    <h1 class="display-4 fw-bold">Смартфон Ultra X Pro</h1>
+                    <p class="lead text-muted">
+                        Эң заманбап камера, күчтүү процессор жана узакка жеткен батарея. Сиздин күнүмдүк жумуштарыңыз үчүн эң мыкты тандоо.
+                    </p>
+                    <div class="mb-3">
+                        <span class="h2 fw-bold text-success">45,000 сом</span>
+                        <span class="text-decoration-line-through text-muted ms-2">52,000 сом</span>
+                    </div>
+                    <div class="d-grid gap-2 d-md-block">
+                        <button class="btn btn-primary btn-lg me-md-2" type="button">
+                            <i class="bi bi-cart-fill"></i> Сатып алуу
+                        </button>
+                        <button class="btn btn-outline-secondary btn-lg" type="button">
+                            <i class="bi bi-heart"></i> Тандалмаларга
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Артыкчылыктары (Features) -->
+    <section id="features" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5 fw-bold">Эмне үчүн бул товарды тандоо керек?</h2>
+            <div class="row text-center g-4">
+                <div class="col-md-4">
+                    <div class="p-4 border rounded shadow-sm">
+                        <i class="bi bi-battery-charging text-primary display-4 mb-3"></i>
+                        <h4>Узак батарея</h4>
+                        <p class="text-muted">5000 мАч батарея бир кубаттоо менен 2 күнгө чейин жетет.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-4 border rounded shadow-sm">
+                        <i class="bi bi-camera text-primary display-4 mb-3"></i>
+                        <h4>108 МП Камера</h4>
+                        <p class="text-muted">Түн ичинде да ачык жана сапаттуу сүрөттөрдү тартыңыз.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-4 border rounded shadow-sm">
+                        <i class="bi bi-cpu text-primary display-4 mb-3"></i>
+                        <h4>Күчтүү процессор</h4>
+                        <p class="text-muted">Оюндар жана оор программалар эч кандай катыбай иштейт.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Мүнөздөмөсү (Specifications) -->
+    <section id="specs" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-4 fw-bold">Техникалык мүнөздөмөсү</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <ul class="list-group list-group-flush shadow-sm rounded">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <strong>Экран:</strong> 6.7" AMOLED, 120Hz
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <strong>Процессор:</strong> Octa-Core 3.0 GHz
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <strong>Оперативдүү эс (RAM):</strong> 8 GB
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <strong>Ички эс (ROM):</strong> 256 GB
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <strong>Батарея:</strong> 5000 mAh (Быстрая зарядка 67W)
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <strong>Операциялык система:</strong> Android 14
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Подвал (Footer) -->
+    <footer class="bg-dark text-white text-center py-4">
+        <div class="container">
+            <p class="mb-1">&copy; 2024 TechStore. Бардык укуктар корголгон.</p>
+            <p class="mb-0 text-muted">Байланыш телефону: +996 (555) 12-34-56</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
